@@ -23,7 +23,7 @@ gulp.task('serve', ['sass'], function() {
   gulp.watch('scss/*.scss', ['sass']);
   gulp.watch('css/main.css', ['prefix']);
   gulp.watch('index.html').on('change', browserSync.reload);
-  return gulp.watch('js/script.js').on('change', browserSync.reload);
+  return gulp.watch('js/index.js').on('change', browserSync.reload);
 });
 
 gulp.task('prefix', function() {

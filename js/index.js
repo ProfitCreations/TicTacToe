@@ -1,18 +1,10 @@
 $(document).ready(function() {
 	var userLetter, compLetter, timeCompTurn;
-
-	// var user = true;
-	// var comp = false;
-
 	var userWin = 0;
 	var compWin = 0;
-
 	var player = "user";
-
 	var win = true;
-
 	var gameOver = false;
-
 	var gamePads = [
 		"#one",
 		"#two",
@@ -27,7 +19,6 @@ $(document).ready(function() {
 
 	// Choose user's letter
 	$("#btn-x").click(function() {
-		console.log("clicked -> #btn-x");
 		userLetter = "X";
 		compLetter = "O";
 		$("#choose").prop("hidden", true);
@@ -36,7 +27,6 @@ $(document).ready(function() {
 		$("#compLetter").text("O");
 	});
 	$("#btn-o").click(function() {
-		console.log("clicked -> #btn-o");
 		userLetter = "O";
 		compLetter = "X";
 		$("#choose").prop("hidden", true);
@@ -45,8 +35,8 @@ $(document).ready(function() {
 		$("#compLetter").text("X");
 	});
 
+	// Helper function
 	$(".game-pad").click(function() {
-		console.log("clicked -> .game-pad");
 		if (gameOver === false) {
 			if (player === "user") {
 				if ($(this).text() === "") {
@@ -55,8 +45,6 @@ $(document).ready(function() {
 					var indexUserPad = gamePads.indexOf(userPad);
 					gamePads.splice(indexUserPad, 1);
 					checkCombis();
-					// user = false;
-					// comp = true;
 					if (gameOver === false) {
 						player = "comp";
 						runCompTurn();
@@ -66,13 +54,11 @@ $(document).ready(function() {
 		}
 	});
 
+	// Computer turn timer
 	function runCompTurn() {
-		console.log("run -> runCompTurn()");
 		timeCompTurn = setTimeout(compTurn, 1000);
 	}
-
 	function compTurn() {
-		console.log("run -> CompTurn()");
 		if (gameOver === false) {
 			if (player === "comp") {
 				var randomPad =
@@ -81,15 +67,13 @@ $(document).ready(function() {
 				var indexCompsPad = gamePads.indexOf(randomPad);
 				gamePads.splice(indexCompsPad, 1);
 				checkCombis();
-				// user = true;
-				// comp = false;
 				player = "user";
 			}
 		}
 	}
 
+	// Check for combinations
 	function checkCombis() {
-		console.log("run -> checkCombis()");
 		switch (true) {
 			case $("#one").text() === userLetter &&
 				$("#two").text() === userLetter &&
@@ -155,7 +139,6 @@ $(document).ready(function() {
 				showResult("win");
 				player = "user";
 				break;
-			// comps
 			case $("#one").text() === compLetter &&
 				$("#two").text() === compLetter &&
 				$("#three").text() === compLetter:
@@ -239,8 +222,8 @@ $(document).ready(function() {
 		}
 	}
 
+	// Results
 	function showResult(state) {
-		console.log("run -> showResult()");
 		switch (state) {
 			case "win":
 				userWin++;
@@ -249,25 +232,17 @@ $(document).ready(function() {
 					.addClass("bounceIn alert-success")
 					.text("You Won!");
 				$("#userBadge").text(userWin);
-				// user = true;
-				// comp = false;
 				player = "user";
 				win = true;
-				console.log("win");
-				console.log("case win, player -> " + player);
 				restart();
 				break;
 			case "loose":
 				compWin++;
 				$("#result").addClass("alert-danger").text("You Lose!");
 				$("#compBadge").text(compWin);
-				console.log("loose");
-				// user = false;
-				// comp = true;
 				player = "comp";
 				win = false;
 				restart();
-				console.log("case loose, player -> " + player);
 				break;
 			case "draw":
 				$("#result")
@@ -280,11 +255,10 @@ $(document).ready(function() {
 		}
 	}
 
+	// Restart function
 	function restart() {
-		console.log("run -> restart()");
 		setTimeout(runRestart, 1000);
 		function runRestart() {
-			console.log("run runRestart()");
 			$("#one, #two, #three, #four, #five, #six, #seven, #eight, #nine")
 				.text("")
 				.removeClass(
@@ -307,11 +281,6 @@ $(document).ready(function() {
 				.addClass("bounceOut")
 				.removeClass("alert-success alert-info alert-danger bounceOut")
 				.text("");
-			console.log("=============");
-			console.log("win -> ", win);
-			console.log("player -> ", player);
-			console.log("gameOver -> ", gameOver);
-			console.log("=============");
 			if (win === false) {
 				player = "comp";
 				runCompTurn();
@@ -319,11 +288,11 @@ $(document).ready(function() {
 				player = "user";
 			}
 			gameOver = false;
-			// $("#resetBtn").prop('hidden', false);
 			$("#resetBtn").prop("hidden", false).addClass("animated flipInX");
 		}
 	}
 
+	// Reset
 	$("#resetBtn").click(function() {
 		userWin = 0;
 		compWin = 0;
@@ -333,8 +302,4 @@ $(document).ready(function() {
 		$("#userBadge, #compBadge").text(0);
 		$(".game-pad").text("");
 	});
-
-	/*
-    ===============
-     */
 });
