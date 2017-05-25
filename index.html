@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>TicTacToe</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center title">TicTacToe</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container spel" hidden>
+       
+        <div class="row justify-content-around">
+            <div class="col-6 text-center " >
+                <span id="user" class="badge badge-primary">You = <span id="userLetter"></span> </span>
+                <span id="userBadge" class="badge badge-default">0</span>
+            </div>
+            <div class="col-6 text-center" >
+                <span id="comp" class="badge badge-primary">Computer = <span id="compLetter"></span> </span>
+                <span id="compBadge" class="badge badge-default">0</span>
+            </div>
+        </div>
+        <hr>
+        <div class="container" id="game">
+            <div class="row">
+                <div id="one" class="col-4 game-pad"></div>
+                <div id="two" class="col-4 game-pad"></div>
+                <div id="three" class="col-4 game-pad"></div>
+            </div>
+            <div class="row">
+                <div id="four" class="col-4 game-pad"></div>
+                <div id="five" class="col-4 game-pad"></div>
+                <div id="six" class="col-4 game-pad"></div>
+            </div>
+            <div class="row">
+                <div id="seven" class="col-4 game-pad"></div>
+                <div id="eight" class="col-4 game-pad"></div>
+                <div id="nine" class="col-4 game-pad"></div>
+            </div>
+        </div>
+       
+    </div>
+    <div class="container">
+         <div class="row">
+            <div id="result" class="alert col-12 text-center animated" role="alert">
+            </div>
+        </div>
+        <div class="row">
+            <div id="resetBtn" class="btn btn-block btn-raised btn-warning animated" hidden>restart</div>
+        </div>
+    </div>
+    <div id="choose" class="container">
+        <div class="col-md-auto alert alert-info" role="alert">
+            <div class="">
+                <div class="">
+                    <div class="">
+                        <h4 class="text-center">Choose</h4>
+                        <div class="">
+                            <div class="">
+                                <div class="">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-around">
+                            <button id="btn-x" type="button" class="btn btn-primary btn-raised text-left">X</button>
+                            <p class="text-center">OR</p>
+                            <button id="btn-o" type="button" class="btn btn-primary btn-raised text-rigth">O</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

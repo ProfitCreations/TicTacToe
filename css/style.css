@@ -1,0 +1,36 @@
+body {
+  background-color: #e0e0e0;
+}
+body .container {
+  max-width: 500px;
+}
+body .spel {
+  background-color: #eeeeee;
+  padding: 15px;
+}
+body .title {
+  padding: 50px 0px;
+}
+body #game {
+  width: 150px;
+}
+body #game .game-pad {
+  width: 50px;
+  height: 50px;
+  font-size: xx-large;
+}
+body #game .game-pad:hover {
+  cursor: pointer;
+}
+body #game .winner {
+  background-color: #4caf50;
+}
+body #game .winner-comp {
+  background-color: #ef5350;
+}
+body #game #one, body #game #two, body #game #four, body #game #five, body #game #seven, body #game #eight {
+  border-right: 3px solid #ccc;
+}
+body #game #four, body #game #five, body #game #six, body #game #seven, body #game #eight, body #game #nine {
+  border-top: 3px solid #ccc;
+}
